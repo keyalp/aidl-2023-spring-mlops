@@ -1,17 +1,17 @@
 # set base image (host OS)
-FROM ...
+FROM python:3.9
 
 # set the working directory in the container
-WORKDIR ...
+WORKDIR /app
 
 # copy the dependencies file to the working directory
-COPY ...
+COPY requirements.txt .
 
 # install dependencies
-RUN ...
+RUN pip install -r requirements.txt
 
 # Copy code to the working directory
-COPY ...
+COPY . /app
 
 # command to run on container start
-ENTRYPOINT ...
+CMD [ "python", "./main.py" ]
